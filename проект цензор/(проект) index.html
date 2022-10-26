@@ -1,0 +1,18 @@
+function censor(){
+	let arr = []
+    return function(a, b=null){
+		if (b === null){
+			arr.forEach(function(item, index, array){
+				let search = new RegExp(item.first, 'g')
+				let str = a.replace(search, item.second)
+				a = str
+			})
+			return a
+		}
+		else{
+			let obj  = {first:a, second:b}
+			arr.push(obj)
+			return arr
+		}
+    }
+}
