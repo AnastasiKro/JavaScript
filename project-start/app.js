@@ -6,6 +6,14 @@ function userbyName(name){
 		}
 	}
 }
+function userbyID(userID){
+	for (var i = 0; i<users.length; i++){
+		if(users[i].id === userID){
+			return users[i].name
+		}
+	}
+}
+
 function handleClick(event){
 	const newTodo = document.getElementById('new-todo').value;
 	event.preventDefault();
@@ -28,13 +36,6 @@ function handleClick(event){
 		document.getElementById('new-todo').value = '';
 	} else {
 		alert('empty field');
-	}
-}
-function userbyID(userID){
-	for (var i = 0; i<users.length; i++){
-		if(users[i].id === userID){
-			return users[i].name
-		}
 	}
 }
 
@@ -81,14 +82,13 @@ function createUser(user){
 	select_users.append(opt);
 }
 
-const todo = document.getElementById('new-todo');
 const select_users = document.getElementById('user-todo');
 const list = document.getElementById('todo-list');
 const btn = document.querySelector('button');
 let alltodos = [];
 let users = [];
 btn.addEventListener('click', handleClick);
-initToDos();
+printValues();
 
 async function GetToDos(){
 	try {
@@ -171,7 +171,7 @@ async function GetUsers(){
 	}
 }
 
-function initToDos(){
+function printValues(){
 	Promise.all([GetToDos(), GetUsers()]).then((values) => {
 		[alltodos, users] = values;
 		alltodos.forEach((value) => createTodo(value));

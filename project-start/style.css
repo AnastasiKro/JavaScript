@@ -53,16 +53,6 @@ ul {
     gap: 1rem;
     padding: 0.5rem 0;
 }
-.closetodo {
-	background-color: blue;
-	cursor: pointer;
-	color: red;
-	font-size: 16px;
-}
-
-.myDo {
-	background-color: blue;
-}
 
 .close {
     color: red;
