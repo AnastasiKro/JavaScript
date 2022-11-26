@@ -33,7 +33,7 @@ export default function App() {
   }
  
  const vehiclesFiltered = vehicles.filter(el => el.title.includes(filterInput))
- .filter(elem=>(filterSelect === "" && elem) || (filterSelect !== "" && elem.type === vehicleTypes[+filterSelect]))//.type == vehicleTypes[+filterSelect])
+ .filter(elem=>(filterSelect === "" && elem) || (filterSelect !== "" && elem.type === vehicleTypes[+filterSelect]))
   return (
     <>
       <Filter onSearch = {handleFilter} />
